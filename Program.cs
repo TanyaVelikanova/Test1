@@ -1,8 +1,11 @@
-﻿int countElem = new Random().Next(3, 5);
+﻿int countElem = new Random().Next(4, 6);
 string[] array = new string[countElem];
 CreateArray();
+Console.WriteLine("Печать заданного массива");
 PrintArray(array);
-
+Console.WriteLine();
+Console.WriteLine("Печать массива согласно условию задачи");
+PrintChangeArray(array);
 
 string[] CreateArray()
 {
@@ -22,3 +25,11 @@ string[] CreateArray()
     }
 }
 
+    void PrintChangeArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <=3)
+        Console.Write($"{array[i]}\t");
+    }
+}
