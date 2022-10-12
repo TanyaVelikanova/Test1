@@ -3,9 +3,9 @@ string[] array = new string[countElem];
 CreateArray();
 Console.WriteLine("Печать заданного массива");
 PrintArray(array);
-Console.WriteLine();
 Console.WriteLine("Печать массива согласно условию задачи");
-PrintChangeArray(array);
+string[] newArray = new string[GetCountElement(array)];
+PrintArray(CreateNewArray(array, newArray));
 
 string[] CreateArray()
 {
@@ -21,15 +21,34 @@ string[] CreateArray()
 {
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]}\t");
+        Console.WriteLine(array[i]);
     }
 }
 
-    void PrintChangeArray(string[] array)
-{
-    for (int i = 0; i < array.Length; i++)
+    int GetCountElement(string[] array)
     {
-        if (array[i].Length <=3)
-        Console.Write($"{array[i]}\t");
+        int newLength = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i].Length <=3)
+            {
+                newLength++;
+            }
+        }
+        return newLength;
     }
+
+string[] CreateNewArray(string[] array, string[] arrayNew)
+{
+    for (int i = 0, j=0; i < array.Length; i++)
+    {
+        {
+            if (array[i].Length <=3)
+            {
+            arrayNew[j] = array[i];
+            j++;
+            }
+        }
+    }
+    return newArray;
 }
